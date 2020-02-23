@@ -16,7 +16,7 @@ public class Contacts implements Contacts_ADTInterface {
         System.out.println("You have chosen to add a new contact: ");
         System.out.println("Please enter the name of the Person: ");
         System.out.print("First Name: ");
-        sc.next();
+
         System.out.print("Last Name: ");
         System.out.print("Contact Number: ");
         System.out.print("Would you like to add another contact number? (y/n): ");
