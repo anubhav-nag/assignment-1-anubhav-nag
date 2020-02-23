@@ -4,13 +4,18 @@ public class Person {
     private String firstName;
     private String lastName;
     private String emailAddress;
-    private StringBuilder contactNumbers;
+    private StringBuilder contactNumbers = new StringBuilder();
 
-    public Person(String firstName, String lastName, String emailAddress, StringBuilder contactNumbers) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
-        this.contactNumbers = contactNumbers;
     }
 
     public String getFirstName() {
@@ -27,5 +32,13 @@ public class Person {
 
     public StringBuilder getContactNumbers() {
         return contactNumbers;
+    }
+
+    public void appendContactNumbers(String newcontact) {
+        if (contactNumbers.length() == 0) {
+            contactNumbers.append(" ").append(newcontact);
+        } else {
+            contactNumbers.append(", ").append(newcontact);
+        }
     }
 }
