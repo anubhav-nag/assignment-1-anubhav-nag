@@ -91,5 +91,15 @@ public class Contacts implements Contacts_ADTInterface {
                 }
             }
         }
+        personArrayList.add(person);
+    }
+
+    @Override
+    public void showContact() {
+        // sorting is left
+        System.out.print("---Here are all your contacts---\n");
+        for (Person person : personArrayList) {
+            System.out.print(person);
+        }
     }
 }

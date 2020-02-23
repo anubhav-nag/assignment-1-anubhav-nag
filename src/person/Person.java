@@ -44,4 +44,14 @@ public class Person implements Person_ADT {
             contactNumbers.append(", ").append(newcontact);
         }
     }
+
+    @Override
+    public String toString() {
+        return "-------- * -------- * -------- * --------\n" +
+                "First Name: " + firstName + "\n" +
+                "Last Name: " + lastName + "\n" +
+                "Contact Number: " + contactNumbers.toString() + "\n" +
+                "Email address: " + emailAddress + "\n" +
+                "-------- * -------- * -------- * --------\n";
+    }
 }
