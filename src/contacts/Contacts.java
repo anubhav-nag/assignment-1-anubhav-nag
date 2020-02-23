@@ -16,6 +16,7 @@ public class Contacts implements Contacts_ADTInterface {
     public void addContact() {
         Person person = new Person();
         int checkWrong = 0;
+        char check = 'y';
         System.out.println("You have chosen to add a new contact: ");
         System.out.println("Please enter the name of the Person: ");
         while (checkWrong < 5) {
@@ -50,10 +51,45 @@ public class Contacts implements Contacts_ADTInterface {
                 return;
             }
         }
-        System.out.print("Contact Number: ");
-        System.out.print("Would you like to add another contact number? (y/n): ");
-        System.out.print("Contact Number: ");
+        while (check != 'n') {
+            while (checkWrong < 5) {
+                System.out.print("Contact Number: ");
+                String contactNumber = sc.next();
+                if (Contact_Validation.checkContactNumber(contactNumber)) {
+                    person.appendContactNumbers(contactNumber);
+                    System.out.print("Would you like to add another contact number? (y/n): ");
+                    check = sc.next().charAt(0);
+                    checkWrong = 0;
+                    break;
+                } else {
+                    checkWrong++;
+                    System.out.println("Invalid input! chances left: " + (5 - checkWrong));
+                }
+                if (checkWrong == 5) {
+                    System.out.println("Contact can't be saved.");
+                    return;
+                }
+            }
+        }
         System.out.print("Would you like to add email address? (y/n): ");
-        System.out.print("Email Address: ");
+        check = sc.next().charAt(0);
+        if (check == 'y') {
+            while (checkWrong < 5) {
+                System.out.print("Email: ");
+                String emailAddress = sc.next();
+                if (Contact_Validation.checkEmail(emailAddress)) {
+                    person.setEmailAddress(emailAddress);
+                    checkWrong = 0;
+                    break;
+                } else {
+                    checkWrong++;
+                    System.out.println("Invalid input! chances left: " + (5 - checkWrong));
+                }
+                if (checkWrong == 5) {
+                    System.out.println("Contact can't be saved.");
+                    return;
+                }
+            }
+        }
     }
 }
