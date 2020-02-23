@@ -97,9 +97,50 @@ public class Contacts implements Contacts_ADTInterface {
     @Override
     public void showContact() {
         // sorting is left
-        System.out.print("---Here are all your contacts---\n");
+        if (personArrayList.isEmpty()) {
+            System.out.println("No Contacts Availbale.");
+        } else {
+            System.out.print("---Here are all your contacts---\n");
+            for (Person person : personArrayList) {
+                System.out.print(person);
+            }
+        }
+    }
+
+    @Override
+    public void deleteContact() {
+        if (personArrayList.isEmpty()) {
+            System.out.println("No Contacts Availbale.");
+        } else {
+            System.out.println("---Here are all your contacts---\n");
+            int index = 1;
+            for (Person person : personArrayList) {
+                System.out.println((index++) + ". " + person.getFirstName() + " " + person.getLastName());
+            }
+            System.out.print("Press the number against the contact to delete it: ");
+            index = sc.nextInt();
+            System.out.println(personArrayList.get(index - 1).getFirstName() + " " + personArrayList.get(index - 1).getLastName() + "'s contact deleted from list!");
+            personArrayList.remove(index - 1);
+        }
+    }
+
+    @Override
+    public void searchContact() {
+        System.out.println("You could search for a contact from their first names:");
+        String name = sc.next();  // for first name
+        int count = 0;
+        StringBuilder stringBuilder = new StringBuilder();
         for (Person person : personArrayList) {
-            System.out.print(person);
+            if (person.getFirstName().equals(name)) {
+                count++;
+                stringBuilder.append(person.toString());
+            }
+        }
+        if (count != 0) {
+            System.out.println(count + " match found!");
+            System.out.println(stringBuilder.toString());
+        } else {
+            System.out.println("NO RESULTS FOUND!");
         }
     }
 }
