@@ -1,8 +1,6 @@
 package person;
 
-import person_ADT.Person_ADT;
-
-public class Person implements Person_ADT {
+public class Person {
     private String firstName;
     private String lastName;
     private String emailAddress;
@@ -35,8 +33,6 @@ public class Person implements Person_ADT {
     public StringBuilder getContactNumbers() {
         return contactNumbers;
     }
-
-    @Override
     public void appendContactNumbers(String newcontact) {
         if (contactNumbers.length() == 0) {
             contactNumbers.append(" ").append(newcontact);
