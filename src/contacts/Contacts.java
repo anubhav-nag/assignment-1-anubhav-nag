@@ -23,7 +23,8 @@ public class Contacts implements Contacts_ADTInterface {
             String firstName = sc.next();
             if (Contact_Validation.checkFirstName(firstName)) {
                 person.setFirstName(firstName);
-                checkWrong = 6;
+                checkWrong = 0;
+                break;
             } else {
                 checkWrong++;
                 System.out.println("Invalid input! chances left: " + (5 - checkWrong));
@@ -33,7 +34,22 @@ public class Contacts implements Contacts_ADTInterface {
                 return;
             }
         }
-        System.out.print("Last Name: ");
+        while (checkWrong < 5) {
+            System.out.print("Last Name: ");
+            String lastName = sc.next();
+            if (Contact_Validation.checkLastName(lastName)) {
+                person.setLastName(lastName);
+                checkWrong = 0;
+                break;
+            } else {
+                checkWrong++;
+                System.out.println("Invalid input! chances left: " + (5 - checkWrong));
+            }
+            if (checkWrong == 5) {
+                System.out.println("Contact can't be saved.");
+                return;
+            }
+        }
         System.out.print("Contact Number: ");
         System.out.print("Would you like to add another contact number? (y/n): ");
         System.out.print("Contact Number: ");

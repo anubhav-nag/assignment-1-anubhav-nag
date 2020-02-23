@@ -14,8 +14,13 @@ public class Contact_Validation {
         return false;
     }
 
-    public static boolean checkLasttName() {
-        return true;
+    public static boolean checkLastName(String lastName) {
+        Pattern pattern = Pattern.compile("[A-Z]{1}[A-Za-z]*[1-9]*");
+        Matcher matcher = pattern.matcher(lastName);
+        if (matcher.find()) {
+            return lastName.equals(matcher.group());
+        }
+        return false;
     }
 
     public static boolean checkEamil() {
