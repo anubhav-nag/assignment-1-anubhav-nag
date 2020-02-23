@@ -98,7 +98,7 @@ public class Contacts implements Contacts_ADTInterface {
     public void showContact() {
         // sorting is left
         if (personArrayList.isEmpty()) {
-            System.out.println("No Contacts Availbale.");
+            System.out.println("No Contacts Availbale !");
         } else {
             System.out.print("---Here are all your contacts---\n");
             for (Person person : personArrayList) {
@@ -110,7 +110,7 @@ public class Contacts implements Contacts_ADTInterface {
     @Override
     public void deleteContact() {
         if (personArrayList.isEmpty()) {
-            System.out.println("No Contacts Availbale.");
+            System.out.println("No Contacts Availbale !");
         } else {
             System.out.println("---Here are all your contacts---\n");
             int index = 1;
