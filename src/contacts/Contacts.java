@@ -1,5 +1,6 @@
 package contacts;
 
+import contact_regex.Contact_Validation;
 import contacts_ADT.Contacts_ADTInterface;
 import person.Person;
 
@@ -13,10 +14,25 @@ public class Contacts implements Contacts_ADTInterface {
 
     @Override
     public void addContact() {
+        Person person = new Person();
+        int checkWrong = 0;
         System.out.println("You have chosen to add a new contact: ");
         System.out.println("Please enter the name of the Person: ");
-        System.out.print("First Name: ");
-
+        while (checkWrong < 5) {
+            System.out.print("First Name: ");
+            String firstName = sc.next();
+            if (Contact_Validation.checkFirstName(firstName)) {
+                person.setFirstName(firstName);
+                checkWrong = 6;
+            } else {
+                checkWrong++;
+                System.out.println("Invalid input! chances left: " + (5 - checkWrong));
+            }
+            if (checkWrong == 5) {
+                System.out.println("Contact can't be saved.");
+                return;
+            }
+        }
         System.out.print("Last Name: ");
         System.out.print("Contact Number: ");
         System.out.print("Would you like to add another contact number? (y/n): ");
