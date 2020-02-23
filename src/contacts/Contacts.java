@@ -79,7 +79,6 @@ public class Contacts implements Contacts_ADTInterface {
                 String emailAddress = sc.next();
                 if (Contact_Validation.checkEmail(emailAddress)) {
                     person.setEmailAddress(emailAddress);
-                    checkWrong = 0;
                     break;
                 } else {
                     checkWrong++;

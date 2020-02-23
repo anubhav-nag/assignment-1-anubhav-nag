@@ -17,7 +17,7 @@ public class Main {
                 "Press 4 to delete a contact\n" +
                 "Press 5 to exit program ";
         boolean flag = false;
-        while (true) {
+        do {
             System.out.println(welcome);
             System.out.println();
             System.out.print("Enter your choice: ");
@@ -46,9 +46,6 @@ public class Main {
                 default:
                     System.out.println("Invalid Input!");
             }
-            if (flag) {
-                break;
-            }
-        }
+        } while (!flag);
     }
 }
